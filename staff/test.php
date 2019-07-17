@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta  charset="UTF-8" name="viewport" content="width=320,height=480,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0,user-scalable=yes" > 
-        <title>端末識別</title>
-    </head>
+<head>
+<meta charset="UTF-8">
+<title>nhuhuうおおおおhu</title>
+</head>
+<body>
+<!-- <?php
+
+
+$dsn = 'mysql:dbname=shop;host=localhost;charaset=utf8';
+$user = 'root';
+$password = '';
+$dbh = new PDO($dsn,$user,$password);
+$dbh -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+$sql = 'INSERT INTO mst_staff(name,password) VALUES ("???",555)';
+
+?> -->
+
+<a href="staff_list.php">??</a>
+
+</body>
 </html>
-<?php
-
-$user = $_SERVER['HTTP_USER_AGENT'];  
-
-print $user;
-
-?>

@@ -10,11 +10,9 @@ try{
 
     $staff_pass = md5($staff_pass);
 
-    $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
-    $user = 'root';
-    $password = 'root';
-
-    $dbh = new PDO($dsn, $user, $password);
+    $username = 'root';
+    $password = '';
+    $dbh = new PDO("mysql:host=localhost;dbname=shop;charset=utf8;",  $username,  $password );
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = 'select name from mst_staff where code = ? and password = ?';

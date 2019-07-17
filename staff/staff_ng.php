@@ -21,7 +21,9 @@ if(isset($_SESSION['login']) == false){
 <title>ろくまる農園</title>
 </head>
 <body>
-スタッフが選択されていません。<br>
+
+スタッフが選択されていません。<br />
 <a href="staff_list.php">戻る</a>
+
 </body>
 </html>

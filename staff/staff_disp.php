@@ -13,7 +13,6 @@ if(isset($_SESSION['login']) == false){
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,45 +20,50 @@ if(isset($_SESSION['login']) == false){
 <title>ろくまる農園</title>
 </head>
 <body>
+
 <?php
 
-try{
-    $staff_code = $_GET['staffcode'];
+try
+{
+ 
+$staff_code = $_GET['staffcode'];
 
-    $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
-    $user = 'root';
-    $password = '';
-    $dbh = new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+$username = 'root';
+$password = '';
+$dbh = new PDO("mysql:host=localhost;dbname=shop;charset=utf8;",  $username,  $password );
+$dbh -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'select name from mst_staff where code = ?';
-    $stmt = $dbh->prepare($sql);
-    $data[] = $staff_code;
-    $stmt->execute($data);
+$sql = 'SELECT name FROM mst_staff WHERE code = ?';
+$stmt = $dbh -> prepare($sql);
+$data[] = $staff_code;
+$stmt -> execute($data);
 
-    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-    $staff_name = $rec['name'];
+$rec = $stmt -> fetch(PDO::FETCH_ASSOC);
+$staff_name = $rec['name'];
 
-    $dbh = null;
+$dbh = null;
+
 }
-catch(Exception $e){
-    print 'ただいま障害により大変ご迷惑をお掛けしております。';
+catch(Exception $e)
+{
+    print'ただいま障害によりご迷惑をお掛けしております。';
     exit();
 }
 
 ?>
 
-スタッフ情報参照<br>
-<br>
-スタッフコード<br>
-<?php print $staff_code; ?>
-<br>
-スタッフ名<br>
-<?php print $staff_name; ?>
-<br>
-<br>
+スタッフ情報参照<br />
+<br />
+スタッフコード<br />
+<?php print$staff_code;?>
+<br />
+スタッフ名<br />
+<?php print$staff_name;?>
+<br />
+<br />
 <form>
 <input type="button" onclick="history.back()" value="戻る">
-</form> 
+</form>
+
 </body>
 </html>
